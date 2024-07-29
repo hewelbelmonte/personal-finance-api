@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despesas</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Despesas</h1>
+
+    <form action="/despesas/new" method="POST">
+        <h2>Adicionar Nova Despesa</h2>
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" name="valor" step="0.01" required>
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <ul>
+        <% despesas.forEach(despesa => { %>
+            <li>
+                <%= despesa.descricao %> - R$ <%= despesa.valor.toFixed(2) %>
+                <a href="/despesas/edit/<%= despesa.id %>">Editar</a>
+                <form action="/despesas/delete/<%= despesa.id %>" method="POST" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/">Voltar para o início</a>
+</body>
+</html>
