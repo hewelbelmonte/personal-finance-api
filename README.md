@@ -17,7 +17,7 @@
 ## Como Começar
 
 1. Clone o repositório:
-   git clone https://github.com/usuario/nome-do-projeto.git](https://github.com/hewelbelmonte/personal-finance-api/
+   git clone https://github.com/usuario/nome-do-projeto.git (https://github.com/hewelbelmonte/personal-finance-api/
 2. Instale as dependências:
    cd nome-do-projeto
    npm install

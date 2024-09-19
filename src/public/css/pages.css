@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f87d0a;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input[type="number"], input[type="text"] {
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+}
+
+button, .edit-button, .back-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button {
+    background-color: #FFFFFF;
+    color: #FF6B00;
+}
+
+button:hover {
+    background-color: #FF9F00;
+}
+
+.edit-button {
+    background-color: #FF6B00;
+    color: #FFFFFF;
+}
+
+.edit-button:hover {
+    background-color: #FF9F00;
+}
+
+.back-button {
+    background-color: #FF6B00;
+    color: #FFFFFF;
+}
+
+.back-button:hover {
+    background-color: #FF9F00;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    form {
+        width: 100%;
+    }
+
+    input[type="number"], input[type="text"] {
+        width: 100%;
+    }
+}
