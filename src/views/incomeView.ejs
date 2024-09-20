@@ -9,22 +9,23 @@
 </head>
 <body>
     <h1>Receitas</h1>
-    
-    <form action="/receitas/new" method="POST">
-        <h2>Adicionar Nova Receita</h2>
+
+    <form action="<%= renda ? '/rendas/edit/' + renda.id : '/rendas/new' %>" method="POST">
+        <h2><%= renda ? 'Editar Renda' : 'Adicionar Nova Renda' %></h2>
         <label for="valor">Valor:</label>
-        <input type="number" id="valor" name="valor" step="0.01" required>
+        <input type="number" id="valor" name="valor" step="0.01" value="<%= renda ? renda.valor : '' %>" required>
         <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" name="descricao" required>
-        <button type="submit">Adicionar</button>
+        <input type="text" id="descricao" name="descricao" value="<%= renda ? renda.descricao : '' %>" required>
+        <button type="submit"><%= renda ? 'Atualizar' : 'Adicionar' %></button>
     </form>
 
+    <h2>Lista de Receitas</h2>
     <ul>
-        <% receitas.forEach(receita => { %>
+        <% rendas.forEach(renda => { %>
             <li>
-                <%= receita.descricao %> - R$ <%= receita.valor.toFixed(2) %>
-                <a href="/receitas/edit/<%= receita.id %>">Editar</a>
-                <form action="/receitas/delete/<%= receita.id %>" method="POST" style="display:inline;">
+                <%= renda.descricao %> - R$ <%= renda.valor.toFixed(2) %>
+                <a href="/rendas/edit/<%= renda.id %>">Editar</a>
+                <form action="/rendas/delete/<%= renda.id %>" method="POST" style="display:inline;">
                     <button type="submit">Excluir</button>
                 </form>
             </li>

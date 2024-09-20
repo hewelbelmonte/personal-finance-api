@@ -10,21 +10,22 @@
 <body>
     <h1>Investimentos</h1>
 
-    <form action="/investimentos/new" method="POST">
-        <h2>Adicionar Novo Investimento</h2>
+    <form action="<%= investimento ? '/investimentos/edit/' + investimento.id : '/investimentos/new' %>" method="POST">
+        <h2><%= investimento ? 'Editar Investimento' : 'Adicionar Nova Investimento' %></h2>
         <label for="valor">Valor:</label>
-        <input type="number" id="valor" name="valor" step="0.01" required>
+        <input type="number" id="valor" name="valor" step="0.01" value="<%= investimento ? investimento.valor : '' %>" required>
         <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" name="descricao" required>
-        <button type="submit">Adicionar</button>
+        <input type="text" id="descricao" name="descricao" value="<%= investimento ? investimento.descricao : '' %>" required>
+        <button type="submit"><%= investimento ? 'Atualizar' : 'Adicionar' %></button>
     </form>
 
+    <h2>Lista de Investimentos</h2>
     <ul>
-        <% investimentos.forEach(investimento => { %>
+        <% investimentos.forEach(d => { %>
             <li>
-                <%= investimento.descricao %> - R$ <%= investimento.valor.toFixed(2) %>
-                <a href="/investimentos/edit/<%= investimento.id %>">Editar</a>
-                <form action="/investimentos/delete/<%= investimento.id %>" method="POST" style="display:inline;">
+                <%= d.descricao %> - R$ <%= d.valor.toFixed(2) %>
+                <a href="/investimentos/edit/<%= d.id %>">Editar</a>
+                <form action="/investimentos/delete/<%= d.id %>" method="POST" style="display:inline;">
                     <button type="submit">Excluir</button>
                 </form>
             </li>
@@ -32,6 +33,5 @@
     </ul>
 
     <a href="/" class="back-button">Voltar para o início</a>
-    
 </body>
 </html>

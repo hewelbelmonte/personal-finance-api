@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= investimento ? 'Editar Investimento' : 'Adicionar Nova Investimento' %></title>
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="icon" href="/pics/save-money.png" type="image/png">
+</head>
+<body>
+    <h1><%= investimento ? 'Editar Investimento' : 'Adicionar Nova Investimento' %></h1>
+
+    <form action="<%= investimento ? '/investimentos/edit/' + investimento.id : '/investimentos/new' %>" method="POST">
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" name="valor" step="0.01" value="<%= investimento ? investimento.valor : '' %>" required>
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" value="<%= investimento ? investimento.descricao : '' %>" required>
+        <button type="submit"><%= investimento ? 'Atualizar' : 'Adicionar' %></button>
+    </form>
+
+    <a href="/investimentos" class="back-button">Voltar para a lista de investimentos</a>
+</body>
+</html>

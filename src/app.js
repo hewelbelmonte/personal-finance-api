@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/despesas', expenseRoutes);
-app.use('/receitas', incomeRoutes);
+app.use('/rendas', incomeRoutes);
 app.use('/investimentos', investmentRoutes);
 app.use('/', financialRoutes);
 

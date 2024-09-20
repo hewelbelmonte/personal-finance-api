@@ -8,7 +8,10 @@ exports.create = (investimento) => {
   investimentos.push(investimento);
 };
 
-exports.getById = (id) => investimentos.find(investimento => investimento.id === id);
+exports.getById = (id) => {
+  console.log('Procurando investimento com ID:', id);
+  return investimentos.find(investimento => investimento.id === id);
+};
 
 exports.update = (id, newInvestimento) => {
   const index = investimentos.findIndex(investimento => investimento.id === id);

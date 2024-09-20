@@ -33,14 +33,12 @@ exports.delete = (req, res) => {
 
 exports.editForm = (req, res) => {
   const id = parseInt(req.params.id);
-  console.log('ID recebido para edição:', id); // Log do ID recebido
+  console.log('ID recebido para edição:', id);
   const despesa = Expense.getById(id);
-  console.log('Despesa encontrada:', despesa); // Log da despesa encontrada
+  console.log('Despesa encontrada:', despesa); 
   if (!despesa) {
     return res.status(404).send('Despesa não encontrada');
   }
   const despesas = Expense.getAll();
   res.render('expenseView', { despesas, despesa });
 };
-
-

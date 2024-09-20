@@ -9,7 +9,7 @@ exports.create = (despesa) => {
 };
 
 exports.getById = (id) => {
-  console.log('Procurando despesa com ID:', id); // Log para verificar o ID
+  console.log('Procurando despesa com ID:', id);
   return despesas.find(despesa => despesa.id === id);
 };
 

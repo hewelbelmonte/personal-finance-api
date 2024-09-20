@@ -1,22 +1,22 @@
-let receitas = [];
+let rendas = [];
 let nextId = 1;
 
-exports.getAll = () => receitas;
+exports.getAll = () => rendas;
 
-exports.create = (receita) => {
-  receita.id = nextId++;
-  receitas.push(receita);
+exports.create = (renda) => {
+  renda.id = nextId++;
+  rendas.push(renda);
 };
 
-exports.getById = (id) => receitas.find(receita => receita.id === id);
+exports.getById = (id) => rendas.find(renda => renda.id === id);
 
-exports.update = (id, newReceita) => {
-  const index = receitas.findIndex(receita => receita.id === id);
+exports.update = (id, newRenda) => {
+  const index = rendas.findIndex(renda => renda.id === id);
   if (index !== -1) {
-    receitas[index] = { ...receitas[index], ...newReceita };
+    rendas[index] = { ...rendas[index], ...newRenda };
   }
 };
 
 exports.delete = (id) => {
-  receitas = receitas.filter(receita => receita.id !== id);
+  rendas = rendas.filter(renda => renda.id !== id);
 };
