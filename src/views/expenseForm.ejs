@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Despesas</title>
+    <title><%= despesa ? 'Editar Despesa' : 'Adicionar Nova Despesa' %></title>
     <link rel="stylesheet" href="/css/pages.css">
     <link rel="icon" href="/pics/save-money.png" type="image/png">
 </head>
 <body>
-    <h1>Despesas</h1>
+    <h1><%= despesa ? 'Editar Despesa' : 'Adicionar Nova Despesa' %></h1>
 
     <form action="<%= despesa ? '/despesas/edit/' + despesa.id : '/despesas/new' %>" method="POST">
-        <h2><%= despesa ? 'Editar Despesa' : 'Adicionar Nova Despesa' %></h2>
         <label for="valor">Valor:</label>
         <input type="number" id="valor" name="valor" step="0.01" value="<%= despesa ? despesa.valor : '' %>" required>
         <label for="descricao">Descrição:</label>
@@ -19,19 +18,6 @@
         <button type="submit"><%= despesa ? 'Atualizar' : 'Adicionar' %></button>
     </form>
 
-    <h2>Lista de Despesas</h2>
-    <ul>
-        <% despesas.forEach(d => { %>
-            <li>
-                <%= d.descricao %> - R$ <%= d.valor.toFixed(2) %>
-                <a href="/despesas/edit/<%= d.id %>">Editar</a>
-                <form action="/despesas/delete/<%= d.id %>" method="POST" style="display:inline;">
-                    <button type="submit">Excluir</button>
-                </form>
-            </li>
-        <% }); %>
-    </ul>
-
-    <a href="/" class="back-button">Voltar para o início</a>
+    <a href="/despesas" class="back-button">Voltar para a lista de despesas</a>
 </body>
 </html>

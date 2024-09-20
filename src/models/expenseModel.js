@@ -8,7 +8,10 @@ exports.create = (despesa) => {
   despesas.push(despesa);
 };
 
-exports.getById = (id) => despesas.find(despesa => despesa.id === id);
+exports.getById = (id) => {
+  console.log('Procurando despesa com ID:', id); // Log para verificar o ID
+  return despesas.find(despesa => despesa.id === id);
+};
 
 exports.update = (id, newDespesa) => {
   const index = despesas.findIndex(despesa => despesa.id === id);

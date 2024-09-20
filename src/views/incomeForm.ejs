@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= income ? 'Editar Renda' : 'Adicionar Nova Renda' %></title>
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="icon" href="/pics/save-money.png" type="image/png">
+</head>
+<body>
+    <h1><%= income ? 'Editar Renda' : 'Adicionar Nova Renda' %></h1>
+
+    <form action="<%= income ? '/rendas/edit/' + income.id : '/rendas/new' %>" method="POST">
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" name="valor" step="0.01" value="<%= income ? income.valor : '' %>" required>
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" value="<%= income ? income.descricao : '' %>" required>
+        <button type="submit"><%= income ? 'Atualizar' : 'Adicionar' %></button>
+    </form>
+
+    <a href="/rendas" class="back-button">Voltar para a lista de rendas</a>
+</body>
+</html>
