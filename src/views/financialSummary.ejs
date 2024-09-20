@@ -40,13 +40,17 @@
                 </section>
 
                 <% 
-                // Calcular a diferença
                 let availableToInvest = totalIncome - totalExpenses; 
                 %>
 
-                <% if (availableToInvest > 0) { %>
+                <% if (availableToInvest >= 0) { %>
                     <section>
-                        <h2>Disponível para Investir:</h2>
+                        <h2 id="available">Disponível para Investir:</h2>
+                        <p>R$ <%= availableToInvest.toFixed(2) %></p>
+                    </section>
+                <% } else { %>
+                    <section id="not-available">
+                        <h2 id="not-available">Total em Débitos:</h2>
                         <p>R$ <%= availableToInvest.toFixed(2) %></p>
                     </section>
                 <% } %>
@@ -54,6 +58,10 @@
         </div>
     </main>
 
-    <footer><a href="https://www.linkedin.com/in/hewelbelmonte/" target="_blank"><p>© All rights reserved to Hewel Belmonte</p></a></footer>
+    <footer>
+        <a href="https://www.linkedin.com/in/hewelbelmonte/" target="_blank">
+            <p>© All rights reserved to Hewel Belmonte</p>
+        </a>
+    </footer>
 </body>
 </html>

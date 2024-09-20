@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #ffffff;
     background-color: #f87d0a;
     display: flex;
@@ -104,4 +104,12 @@ footer > a {
     nav li {
         margin: 10px 0;
     }
+}
+
+#available{
+    color: #f87d0a;
+}
+
+#not-available{
+    color: red;
 }
